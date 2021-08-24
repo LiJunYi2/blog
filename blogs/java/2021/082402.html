@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>设计模式之工厂模式 | 俊逸的博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/blog/favicon.ico">
+    <meta name="description" content="💓你要去相信，没有到不了的明天🧡">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keywords" content="后台,java,Spring">
+    <meta name="author" content="俊怡">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.727fb51c.css" as="style"><link rel="preload" href="/blog/assets/js/app.15527507.js" as="script"><link rel="preload" href="/blog/assets/js/3.05aa6811.js" as="script"><link rel="preload" href="/blog/assets/js/1.9d1c3728.js" as="script"><link rel="preload" href="/blog/assets/js/16.388130f3.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.65d20424.js"><link rel="prefetch" href="/blog/assets/js/11.d94e7860.js"><link rel="prefetch" href="/blog/assets/js/12.3c7d9225.js"><link rel="prefetch" href="/blog/assets/js/13.7e184d86.js"><link rel="prefetch" href="/blog/assets/js/14.5ea8b829.js"><link rel="prefetch" href="/blog/assets/js/15.e846fa3a.js"><link rel="prefetch" href="/blog/assets/js/17.422d4e18.js"><link rel="prefetch" href="/blog/assets/js/18.4675cf32.js"><link rel="prefetch" href="/blog/assets/js/19.1b293b50.js"><link rel="prefetch" href="/blog/assets/js/20.4e3edf2e.js"><link rel="prefetch" href="/blog/assets/js/21.3e1a5a3d.js"><link rel="prefetch" href="/blog/assets/js/22.2ace9618.js"><link rel="prefetch" href="/blog/assets/js/23.7b863bc6.js"><link rel="prefetch" href="/blog/assets/js/24.668cdc5c.js"><link rel="prefetch" href="/blog/assets/js/25.9b208d7d.js"><link rel="prefetch" href="/blog/assets/js/26.ea8ebe51.js"><link rel="prefetch" href="/blog/assets/js/27.4eaff1f7.js"><link rel="prefetch" href="/blog/assets/js/28.cd0b803f.js"><link rel="prefetch" href="/blog/assets/js/29.d62d7e59.js"><link rel="prefetch" href="/blog/assets/js/30.eefb5878.js"><link rel="prefetch" href="/blog/assets/js/31.c789c01e.js"><link rel="prefetch" href="/blog/assets/js/4.e00671bb.js"><link rel="prefetch" href="/blog/assets/js/5.803a8b43.js"><link rel="prefetch" href="/blog/assets/js/6.275d941d.js"><link rel="prefetch" href="/blog/assets/js/7.095d3257.js"><link rel="prefetch" href="/blog/assets/js/8.584e7c7d.js"><link rel="prefetch" href="/blog/assets/js/9.bcaba74b.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.727fb51c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>俊逸的博客</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>💓你要去相信，没有到不了的明天🧡</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>LiJunYi</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/logo.png" alt="俊逸的博客" class="logo"> <span class="site-name">俊逸的博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/java/" class="nav-link"><i class="undefined"></i>
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/mybatis/" class="nav-link"><i class="undefined"></i>
+  mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/SpringCloud/" class="nav-link"><i class="undefined"></i>
+  SpringCloud
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      其他
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>联系我</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://github.com/LiJunYi2" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://pan.yuankongjian.com" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-mayun"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>一些工具</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://github.com/LiJunYi2" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-api"></i>
+  阿里小站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/docs/theme-reco/" class="nav-link"><i class="iconfont reco-coding"></i>
+  关于我
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/blog/toux.jpg" alt="author-avatar" class="personal-img" data-v-828910c6> <h3 class="name" data-v-828910c6>
+    LiJunYi
+  </h3> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>12</h3> <h6 data-v-828910c6>Articles</h6></div> <div data-v-828910c6><h3 data-v-828910c6>7</h3> <h6 data-v-828910c6>Tags</h6></div></div> <ul class="social-links" data-v-828910c6></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/categories/java/" class="nav-link"><i class="undefined"></i>
+  java
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/mybatis/" class="nav-link"><i class="undefined"></i>
+  mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/blog/categories/SpringCloud/" class="nav-link"><i class="undefined"></i>
+  SpringCloud
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      其他
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>联系我</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://github.com/LiJunYi2" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://pan.yuankongjian.com" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-mayun"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>一些工具</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://github.com/LiJunYi2" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-api"></i>
+  阿里小站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><a href="/blog/docs/theme-reco/" class="nav-link"><i class="iconfont reco-coding"></i>
+  关于我
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>设计模式之工厂模式</h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>LiJunYi</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-1156296a><main class="page"><section><div class="page-title"><h1 class="title">设计模式之工厂模式</h1> <div data-v-1ff7123e><i class="iconfont reco-account" data-v-1ff7123e><span data-v-1ff7123e>LiJunYi</span></i> <i class="iconfont reco-date" data-v-1ff7123e><span data-v-1ff7123e>8/24/2021</span></i> <i class="iconfont reco-eye" data-v-1ff7123e><span id="/blog/blogs/java/2021/082402.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-1ff7123e><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-1ff7123e><span class="tag-item" data-v-1ff7123e>设计模式</span><span class="tag-item" data-v-1ff7123e>创建型模式</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="简单工厂模式✨"><a href="#简单工厂模式✨" class="header-anchor">#</a> 简单工厂模式✨</h2> <p>工厂模式的定义：定义一个创建产品对象的工厂接口，将产品对象的实际创建工作推迟到具体子工厂类当中。这满足创建型模式中所要求的“创建与使用相分离”的特点。</p> <p>按实际业务场景划分，工厂模式有 3 种不同的实现方式，分别是<strong>简单工厂模式、工厂方法模式和抽象工厂模式</strong>。</p> <p>我们把被创建的对象称为“产品”，把创建产品的对象称为“工厂”。如果要创建的产品不多，只要一个工厂类就可以完成，这种模式叫“简单工厂模式”。</p> <p><strong>在简单工厂模式中创建实例的方法通常为静态（static）方法，因此简单工厂模式（Simple Factory Pattern）又叫作静态工厂方法模式（Static Factory Method Pattern）。</strong></p> <p>简单来说，简单工厂模式有一个具体的工厂类，可以生成多个不同的产品，属于创建型设计模式。简单工厂模式不在 GoF 23 种设计模式之列。</p> <p><strong>简单工厂模式每增加一个产品就要增加一个具体产品类和一个对应的具体工厂类，这增加了系统的复杂度，违背了“开闭原则”。</strong></p> <h2 id="简单工厂模式的优点🧨"><a href="#简单工厂模式的优点🧨" class="header-anchor">#</a> 简单工厂模式的优点🧨</h2> <ol><li><strong>工厂类包含必要的逻辑判断，可以决定在什么时候创建哪一个产品的实例。客户端可以免除直接创建产品对象的职责，很方便的创建出相应的产品。工厂和产品的职责区分明确。</strong></li> <li><strong>客户端无需知道所创建具体产品的类名，只需知道参数即可。</strong></li> <li><strong>也可以引入配置文件，在不修改客户端代码的情况下更换和添加新的具体产品类。</strong></li></ol> <h2 id="简单工厂模式的缺点🎋"><a href="#简单工厂模式的缺点🎋" class="header-anchor">#</a> 简单工厂模式的缺点🎋</h2> <ol><li><strong>简单工厂模式的工厂类单一，负责所有产品的创建，职责过重，一旦异常，整个系统将受影响。且工厂类代码会非常臃肿，违背高聚合原则。</strong></li> <li><strong>使用简单工厂模式会增加系统中类的个数（引入新的工厂类），增加系统的复杂度和理解难度</strong></li> <li><strong>系统扩展困难，一旦增加新产品不得不修改工厂逻辑，在产品类型较多时，可能造成逻辑过于复杂</strong></li> <li><strong>简单工厂模式使用了 static 工厂方法，造成工厂角色无法形成基于继承的等级结构。</strong></li></ol> <h2 id="简单工厂模式的应用场景🎋"><a href="#简单工厂模式的应用场景🎋" class="header-anchor">#</a> 简单工厂模式的应用场景🎋</h2> <p><strong>对于产品种类相对较少的情况，考虑使用简单工厂模式。使用简单工厂模式的客户端只需要传入工厂类的参数，不需要关心如何创建对象的逻辑，可以很方便地创建所需产品。</strong></p> <h2 id="代码实现🎟"><a href="#代码实现🎟" class="header-anchor">#</a> <strong>代码实现🎟</strong></h2> <h3 id="_1、抽象产品"><a href="#_1、抽象产品" class="header-anchor">#</a> 1、抽象产品</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * Product 接口描述
+ *
+ * @version 1.0.0
+ * @Description: 抽象产品
+ * @author: LiJunYi
+ * @create: 2021/5/27 15:35
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Product</span>
+<span class="token punctuation">{</span>
+    <span class="token class-name">String</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h3 id="_2、具体产品"><a href="#_2、具体产品" class="header-anchor">#</a> 2、具体产品</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * @version 1.0.0
+ * @className: CupProduct
+ * @description: 杯子产品
+ * @author: LiJunYi
+ * @create: 2021/5/27 15:36
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CupProduct</span> <span class="token keyword">implements</span> <span class="token class-name">Product</span>
+<span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;杯子产品创建&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;杯子产品创建&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * @version 1.0.0
+ * @className: CupProduct
+ * @description: 毛巾产品
+ * @author: LiJunYi
+ * @create: 2021/5/27 15:36
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TowelProduct</span> <span class="token keyword">implements</span> <span class="token class-name">Product</span>
+<span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;毛巾产品创建&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;毛巾产品创建&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><h3 id="_3、简单工厂模式"><a href="#_3、简单工厂模式" class="header-anchor">#</a> 3、简单工厂模式</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * @version 1.0.0
+ * @className: EasyProductFactory
+ * @description: 简单工厂模式
+ * @author: LiJunYi
+ * @create: 2021/5/27 15:37
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EasyProductFactory</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Product</span> <span class="token function">createProduct</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">&quot;CupProduct&quot;</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">CupProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">&quot;TowelProduct&quot;</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">TowelProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Product</span> concreteProduct1 <span class="token operator">=</span> <span class="token class-name">EasyProductFactory</span><span class="token punctuation">.</span><span class="token function">createProduct</span><span class="token punctuation">(</span><span class="token string">&quot;CupProduct&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Product</span> concreteProduct2 <span class="token operator">=</span> <span class="token class-name">EasyProductFactory</span><span class="token punctuation">.</span><span class="token function">createProduct</span><span class="token punctuation">(</span><span class="token string">&quot;TowelProduct&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>concreteProduct1<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>concreteProduct2<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><h2 id="工厂方法模式✨"><a href="#工厂方法模式✨" class="header-anchor">#</a> 工厂方法模式✨</h2> <p><strong>简单工厂模式违背了开闭原则，而“工厂方法模式”是对简单工厂模式的进一步抽象化，其好处是可以使系统在不修改原来代码的情况下引进新的产品，即满足开闭原则。</strong></p> <p>这个其实和简单工厂模式差不太多，就是将工厂继续拆分，比如说刚刚EasyProductFactory是一个总工厂，我们现在拆分成CupFactory和TowelFactory分别生产杯子和毛巾。某个工厂内部可以根据需求生产不同的产品。</p> <h2 id="工厂方法模式的优点🧨"><a href="#工厂方法模式的优点🧨" class="header-anchor">#</a> 工厂方法模式的优点🧨</h2> <ul><li><strong>用户只需要知道具体工厂的名称就可得到所要的产品，无须知道产品的具体创建过程。</strong></li> <li><strong>灵活性增强，对于新产品的创建，只需多写一个相应的工厂类。</strong></li> <li><strong>典型的解耦框架。高层模块只需要知道产品的抽象类，无须关心其他实现类，满足迪米特法则、依赖倒置原则和里氏替换原则。</strong></li></ul> <h2 id="工厂方法模式的缺点🎋"><a href="#工厂方法模式的缺点🎋" class="header-anchor">#</a> 工厂方法模式的缺点🎋</h2> <ul><li><strong>类的个数容易过多，增加复杂度</strong></li> <li><strong>增加了系统的抽象性和理解难度</strong></li> <li><strong>抽象产品只能生产一种产品，此弊端可使用[抽象工厂模式]解决。</strong></li></ul> <h2 id="工厂方法模式的应用场景🎋"><a href="#工厂方法模式的应用场景🎋" class="header-anchor">#</a> 工厂方法模式的应用场景🎋</h2> <ul><li><strong>客户只知道创建产品的工厂名，而不知道具体的产品名。如 TCL 电视工厂、海信电视工厂等。</strong></li> <li><strong>创建对象的任务由多个具体子工厂中的某一个完成，而抽象工厂只提供创建产品的接口。</strong></li> <li><strong>客户不关心创建产品的细节，只关心产品的品牌</strong></li></ul> <h2 id="工厂方法模式的结构与实现🕳"><a href="#工厂方法模式的结构与实现🕳" class="header-anchor">#</a> 工厂方法模式的结构与实现🕳</h2> <p><strong>工厂方法模式由抽象工厂、具体工厂、抽象产品和具体产品等4个要素构成。</strong></p> <p><strong>工厂方法模式的主要角色如下。</strong></p> <ol><li>抽象工厂（Abstract Factory）：提供了创建产品的接口，调用者通过它访问具体工厂的工厂方法 newProduct() 来创建产品。</li> <li>具体工厂（ConcreteFactory）：主要是实现抽象工厂中的抽象方法，完成具体产品的创建。</li> <li>抽象产品（Product）：定义了产品的规范，描述了产品的主要特性和功能。</li> <li>具体产品（ConcreteProduct）：实现了抽象产品角色所定义的接口，由具体工厂来创建，它同具体工厂之间一一对应。</li></ol> <p><img src="http://c.biancheng.net/uploads/allimg/181114/3-1Q114135A2M3.gif" alt="page"></p> <h2 id="代码实现🎟-2"><a href="#代码实现🎟-2" class="header-anchor">#</a> <strong>代码实现🎟</strong></h2> <h3 id="_1、抽象工厂"><a href="#_1、抽象工厂" class="header-anchor">#</a> 1、抽象工厂</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * ProductFactory 接口描述
+ *
+ * @version 1.0.0
+ * @Description: 抽象工厂
+ * @author: LiJunYi
+ * @create: 2021/5/27 15:58
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ProductFactory</span>
+<span class="token punctuation">{</span>
+    <span class="token class-name">Product</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="_2、具体工厂"><a href="#_2、具体工厂" class="header-anchor">#</a> 2、具体工厂</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * @version 1.0.0
+ * @className: CupFactory
+ * @description: 具体工厂1
+ * @author: LiJunYi
+ * @create: 2021/5/27 15:59
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CupFactory</span> <span class="token keyword">implements</span> <span class="token class-name">ProductFactory</span>
+<span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Product</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;杯子工厂生产-&gt; 生产杯子...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">CupProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+ * @version 1.0.0
+ * @className: TowelFactory
+ * @description: 具体工厂2
+ * @author: LiJunYi
+ * @create: 2021/5/27 16:00
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TowelFactory</span> <span class="token keyword">implements</span> <span class="token class-name">ProductFactory</span>
+<span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Product</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;毛巾工厂生产-&gt; 生产毛巾...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">TowelProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><h3 id="_3、工厂模式"><a href="#_3、工厂模式" class="header-anchor">#</a> 3、工厂模式</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * @version 1.0.0
+ * @className: AbstractFactoryTest
+ * @description: 工厂模式
+ * @author: LiJunYi
+ * @create: 2021/5/27 16:06
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AbstractFactoryTest</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">ProductFactory</span> productFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CupFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Product</span> product <span class="token operator">=</span> productFactory<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            product<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="抽象工厂模式✨"><a href="#抽象工厂模式✨" class="header-anchor">#</a> 抽象工厂模式✨</h2> <p><strong>工厂方法模式</strong>   中考虑的是一类产品的生产，如畜牧场只养动物、电视机厂只生产电视机等。</p> <p>同种类称为同等级，也就是说：<strong>工厂方法模式</strong>   只考虑生产同等级的产品，但是在现实生活中许多工厂是综合型的工厂，能生产多等级（种类） 的产品，如农场里既养动物又种植物，电器厂既生产电视机又生产洗衣机或空调等。</p> <p><strong>抽象工厂模式将考虑多等级产品的生产，将同一个具体工厂所生产的位于不同等级的一组产品称为一个产品族</strong></p> <p><img src="http://c.biancheng.net/uploads/allimg/181114/3-1Q1141559151S.gif" alt="page"></p> <h2 id="抽象工厂模式的定义🧨"><a href="#抽象工厂模式的定义🧨" class="header-anchor">#</a> 抽象工厂模式的定义🧨</h2> <p><strong>抽象工厂（AbstractFactory）模式的定义：是一种为访问类提供一个创建一组相关或相互依赖对象的接口，且访问类无须指定所要产品的具体类就能得到同族的不同等级的产品的模式结构。</strong></p> <p>抽象工厂模式是工厂方法模式的升级版本，工厂方法模式只生产一个等级的产品，而抽象工厂模式可生产多个等级的产品。</p> <p><strong>使用抽象工厂模式一般要满足以下条件。</strong></p> <ul><li>系统中有多个产品族，每个具体工厂创建同一族但属于不同等级结构的产品。</li> <li>系统一次只可能消费其中某一族产品，即同族的产品一起使用。</li></ul> <p><strong>抽象工厂模式除了具有工厂方法模式的优点外，其他主要优点如下。</strong></p> <ul><li>可以在类的内部对产品族中相关联的多等级产品共同管理，而不必专门引入多个新的类来进行管理。</li> <li>当需要产品族时，抽象工厂可以保证客户端始终只使用同一个产品的产品组。</li> <li>抽象工厂增强了程序的可扩展性，当增加一个新的产品族时，不需要修改原代码，满足开闭原则。</li></ul> <p>其缺点是：当产品族中需要增加一个新的产品时，所有的工厂类都需要进行修改。增加了系统的抽象性和理解难度。</p> <h2 id="模式的结构与实现🕳"><a href="#模式的结构与实现🕳" class="header-anchor">#</a> 模式的结构与实现🕳</h2> <p><strong>抽象工厂模式同工厂方法模式一样，也是由抽象工厂、具体工厂、抽象产品和具体产品等 4 个要素构成，但抽象工厂中方法个数不同，抽象产品的个数也不同。</strong></p> <p><strong>抽象工厂模式的主要角色如下。</strong></p> <ol><li>抽象工厂（Abstract Factory）：提供了创建产品的接口，它包含多个创建产品的方法 newProduct()，可以创建多个不同等级的产品。</li> <li>具体工厂（Concrete Factory）：主要是实现抽象工厂中的多个抽象方法，完成具体产品的创建。</li> <li>抽象产品（Product）：定义了产品的规范，描述了产品的主要特性和功能，抽象工厂模式有多个抽象产品。</li> <li>具体产品（ConcreteProduct）：实现了抽象产品角色所定义的接口，由具体工厂来创建，它同具体工厂之间是多对一的关系。</li></ol> <h2 id="代码实现🎟-3"><a href="#代码实现🎟-3" class="header-anchor">#</a> <strong>代码实现🎟</strong></h2> <h3 id="_1、抽象工厂-2"><a href="#_1、抽象工厂-2" class="header-anchor">#</a> 1、抽象工厂</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * AbstractFactory 接口描述
+ *
+ * @version 1.0.0
+ * @Description: 抽象工厂：提供了产品的生成方法。
+ * @author: LiJunYi
+ * @create: 2021/5/27 16:24
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">AbstractFactory</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 生产杯子
+     *
+     * @return {@link Product}
+     */</span>
+    <span class="token class-name">Product</span> <span class="token function">createCup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 生产鞋子
+     *
+     * @return {@link Product2}
+     */</span>
+    <span class="token class-name">Product2</span> <span class="token function">createShoes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h3 id="_2、具体工厂-2"><a href="#_2、具体工厂-2" class="header-anchor">#</a> 2、具体工厂</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * @version 1.0.0
+ * @className: CupAndShoesFactory  具体工厂：实现了产品的生成方法。
+ * @description: 杯子和鞋子类产品生产工厂(不同等级)
+ * @author: LiJunYi
+ * @create: 2021/5/27 16:31
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CupAndShoesFactory</span> <span class="token keyword">implements</span> <span class="token class-name">AbstractFactory</span>
+<span class="token punctuation">{</span>
+
+
+    <span class="token comment">/**
+     * 生产杯子
+     *
+     * @return {@link Product}
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Product</span> <span class="token function">createCup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;具体工厂（杯子）创建-&gt;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">CupProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 生产鞋子
+     *
+     * @return {@link Product2}
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Product2</span> <span class="token function">createShoes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;具体工厂（鞋子）创建-&gt;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ShoesProduct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><h3 id="_3、抽象产品"><a href="#_3、抽象产品" class="header-anchor">#</a> 3、抽象产品</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * Product2 接口描述
+ *
+ * @version 1.0.0
+ * @Description: 抽象产品2
+ * @author: LiJunYi
+ * @create: 2021/5/27 16:27
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Product2</span>
+<span class="token punctuation">{</span>
+    <span class="token class-name">String</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="_4、具体产品"><a href="#_4、具体产品" class="header-anchor">#</a> 4、具体产品</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * @version 1.0.0
+ * @className: ShoesProduct
+ * @description: 鞋类产品
+ * @author: LiJunYi
+ * @create: 2021/5/27 16:32
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ShoesProduct</span> <span class="token keyword">implements</span> <span class="token class-name">Product2</span>
+<span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;鞋子产品生产&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">&quot;鞋子产品生产&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h3 id="_5、测试类"><a href="#_5、测试类" class="header-anchor">#</a> 5、测试类</h3> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * @version 1.0.0
+ * @className: AbstractFactoryMain
+ * @description:
+ * @author: LiJunYi
+ * @create: 2021/5/27 16:38
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AbstractFactoryMain</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">CupProduct</span> cupProduct<span class="token punctuation">;</span>
+        <span class="token class-name">ShoesProduct</span> shoesProduct<span class="token punctuation">;</span>
+        <span class="token class-name">AbstractFactory</span> abstractFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CupAndShoesFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cupProduct <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">CupProduct</span><span class="token punctuation">)</span> abstractFactory<span class="token punctuation">.</span><span class="token function">createCup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        shoesProduct <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">ShoesProduct</span><span class="token punctuation">)</span> abstractFactory<span class="token punctuation">.</span><span class="token function">createShoes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cupProduct<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        shoesProduct<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-70334359><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#简单工厂模式✨" class="sidebar-link reco-side-简单工厂模式✨" data-v-70334359>简单工厂模式✨</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#简单工厂模式的优点🧨" class="sidebar-link reco-side-简单工厂模式的优点🧨" data-v-70334359>简单工厂模式的优点🧨</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#简单工厂模式的缺点🎋" class="sidebar-link reco-side-简单工厂模式的缺点🎋" data-v-70334359>简单工厂模式的缺点🎋</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#简单工厂模式的应用场景🎋" class="sidebar-link reco-side-简单工厂模式的应用场景🎋" data-v-70334359>简单工厂模式的应用场景🎋</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#代码实现🎟" class="sidebar-link reco-side-代码实现🎟" data-v-70334359>代码实现🎟</a></li><li class="level-3" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#_1、抽象产品" class="sidebar-link reco-side-_1、抽象产品" data-v-70334359>1、抽象产品</a></li><li class="level-3" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#_2、具体产品" class="sidebar-link reco-side-_2、具体产品" data-v-70334359>2、具体产品</a></li><li class="level-3" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#_3、简单工厂模式" class="sidebar-link reco-side-_3、简单工厂模式" data-v-70334359>3、简单工厂模式</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#工厂方法模式✨" class="sidebar-link reco-side-工厂方法模式✨" data-v-70334359>工厂方法模式✨</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#工厂方法模式的优点🧨" class="sidebar-link reco-side-工厂方法模式的优点🧨" data-v-70334359>工厂方法模式的优点🧨</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#工厂方法模式的缺点🎋" class="sidebar-link reco-side-工厂方法模式的缺点🎋" data-v-70334359>工厂方法模式的缺点🎋</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#工厂方法模式的应用场景🎋" class="sidebar-link reco-side-工厂方法模式的应用场景🎋" data-v-70334359>工厂方法模式的应用场景🎋</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#工厂方法模式的结构与实现🕳" class="sidebar-link reco-side-工厂方法模式的结构与实现🕳" data-v-70334359>工厂方法模式的结构与实现🕳</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#代码实现🎟-2" class="sidebar-link reco-side-代码实现🎟-2" data-v-70334359>代码实现🎟</a></li><li class="level-3" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#_1、抽象工厂" class="sidebar-link reco-side-_1、抽象工厂" data-v-70334359>1、抽象工厂</a></li><li class="level-3" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#_2、具体工厂" class="sidebar-link reco-side-_2、具体工厂" data-v-70334359>2、具体工厂</a></li><li class="level-3" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#_3、工厂模式" class="sidebar-link reco-side-_3、工厂模式" data-v-70334359>3、工厂模式</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#抽象工厂模式✨" class="sidebar-link reco-side-抽象工厂模式✨" data-v-70334359>抽象工厂模式✨</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#抽象工厂模式的定义🧨" class="sidebar-link reco-side-抽象工厂模式的定义🧨" data-v-70334359>抽象工厂模式的定义🧨</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#模式的结构与实现🕳" class="sidebar-link reco-side-模式的结构与实现🕳" data-v-70334359>模式的结构与实现🕳</a></li><li class="level-2" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#代码实现🎟-3" class="sidebar-link reco-side-代码实现🎟-3" data-v-70334359>代码实现🎟</a></li><li class="level-3" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#_1、抽象工厂-2" class="sidebar-link reco-side-_1、抽象工厂-2" data-v-70334359>1、抽象工厂</a></li><li class="level-3" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#_2、具体工厂-2" class="sidebar-link reco-side-_2、具体工厂-2" data-v-70334359>2、具体工厂</a></li><li class="level-3" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#_3、抽象产品" class="sidebar-link reco-side-_3、抽象产品" data-v-70334359>3、抽象产品</a></li><li class="level-3" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#_4、具体产品" class="sidebar-link reco-side-_4、具体产品" data-v-70334359>4、具体产品</a></li><li class="level-3" data-v-70334359><a href="/blog/blogs/java/2021/082402.html#_5、测试类" class="sidebar-link reco-side-_5、测试类" data-v-70334359>5、测试类</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div></div><!----><canvas id="vuepress-canvas-ribbon"></canvas></div></div>
+    <script src="/blog/assets/js/app.15527507.js" defer></script><script src="/blog/assets/js/3.05aa6811.js" defer></script><script src="/blog/assets/js/1.9d1c3728.js" defer></script><script src="/blog/assets/js/16.388130f3.js" defer></script>
+  </body>
+</html>
