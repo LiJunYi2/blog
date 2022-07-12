@@ -1,0 +1,3 @@
+Sitemap: https://lijunyi.xyz/sitemap.xml
+
+User-agent: *
